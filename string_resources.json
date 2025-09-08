@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "brand": "HackRowing",
+    "links": [
+      { "href": "#mission", "text": "Mission" },
+      { "href": "#objectives", "text": "Objectives" },
+      { "href": "#structure", "text": "Program" },
+      { "href": "#testimonials", "text": "Testimonials" }
+    ],
+    "ctaButton": "Get a Quote"
+  },
+  "header": {
+    "mainTitle": "HackRowing Teambuildings",
+    "subtitle": "Build a Stronger Team, One Stroke at a Time.",
+    "description": "Experience the ultimate teambuilding activity on Pancharevo Lake with HackRowing."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "text": "HackRowing was founded on the principle that the discipline, persistence, and collaborative effort inherent in rowing are directly transferable to the professional world. We offer a distinctive team-building experience where participants learn that peak performance comes not from individual strength, but from the perfect synchronicity of a cohesive team."
+  },
+  "objectives": {
+    "title": "What Your Team Will Achieve",
+    "description": "Our program is designed for lasting impact on team dynamics, community, and personal growth.",
+    "points": [
+      { "title": "Enhance Team Cohesion", "text": "Build stronger connections in a dynamic environment that promotes an active lifestyle and true collaboration." },
+      { "title": "Promote Rowing in Bulgaria", "text": "Increase the accessibility of this amazing sport, encouraging broader participation among the public and youth." },
+      { "title": "Support Community Development", "text": "All proceeds are reinvested into the NSA Rowing Club to improve facilities and support Bulgaria's future athletes." }
+    ]
+  },
+  "details": {
+    "title": "Our Proven Program Format",
+    "description": "This structure is tested and highly effective, but we can customize it to fit your needs.",
+    "disclaimer": "*We are flexible and will gladly adapt the program format to your company's specific needs and timeline."
+  },
+  "structure": {
+    "title": "Your Team's 6-Session Journey",
+    "steps": [
+      { "title": "Session 1: The Foundation", "text": "An on-land introduction to rowing technique using Concept 2 ergometers to build core skills." },
+      { "title": "Session 2: First Splash", "text": "The first hands-on session on the water, applying learned techniques in stable, multi-person boats." },
+      { "title": "Session 3: Finding Rhythm", "text": "Continued on-water practice focusing on developing team synchronicity and communication." },
+      { "title": "Session 4: Refining Technique", "text": "Advanced coaching to improve crew efficiency, power, and speed." },
+      { "title": "Session 5: Race Preparation", "text": "Crews practice starts and race pace, solidifying their teamwork under pressure." },
+      { "title": "Session 6: The Finale", "text": "A friendly regatta between crews, followed by a closing ceremony with certificates and celebration." }
+    ]
+  },
+  "testimonials": {
+    "title": "Recommendations from Happy Clients"
+  },
+  "contact": {
+    "title": "Ready to Build Your Champion Team?",
+    "description": "Reach out to us to get a personalized quote and schedule your HackRowing teambuilding experience. We'll get back to you within one business day.",
+    "form": {
+      "nameLabel": "Your Name",
+      "companyLabel": "Company Name",
+      "emailLabel": "Email Address",
+      "messageLabel": "Message (Approx. number of participants, preferred dates, etc.)",
+      "submitButton": "Send Inquiry"
+    }
+  },
+  "footer": {
+    "title": "Connect with Us",
+    "description": "Follow our journey on social media or visit us at the lake.",
+    "locationTitle": "Our Location",
+    "copyright": "&copy; 2024 HackRowing. All rights reserved."
+  }
+}
