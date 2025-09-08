@@ -10,9 +10,9 @@
     "ctaButton": "Get a Quote"
   },
   "header": {
-    "mainTitle": "HackRowing Teambuildings",
+    "mainTitle": "HackRowing Teambuilding",
     "subtitle": "Build a Stronger Team, One Stroke at a Time.",
-    "description": "Experience the ultimate teambuilding activity on Pancharevo Lake with HackRowing."
+    "description": "Experience the ultimate team-building activity on Pancharevo Lake with HackRowing."
   },
   "mission": {
     "title": "Our Mission",
@@ -30,6 +30,12 @@
   "details": {
     "title": "Our Proven Program Format",
     "description": "This structure is tested and highly effective, but we can customize it to fit your needs.",
+    "metrics": [
+      { "value": "~6", "label": "Total Sessions" },
+      { "value": "~1.5", "label": "Months Duration" },
+      { "value": "~1.5", "label": "Hours Per Session" },
+      { "value": "5-15", "label": "Participants Per Group" }
+    ],
     "disclaimer": "*We are flexible and will gladly adapt the program format to your company's specific needs and timeline."
   },
   "structure": {
@@ -48,7 +54,7 @@
   },
   "contact": {
     "title": "Ready to Build Your Champion Team?",
-    "description": "Reach out to us to get a personalized quote and schedule your HackRowing teambuilding experience. We'll get back to you within one business day.",
+    "description": "Reach out to us to get a personalized quote and schedule your HackRowing team-building experience. We'll get back to you within one business day.",
     "form": {
       "nameLabel": "Your Name",
       "companyLabel": "Company Name",
