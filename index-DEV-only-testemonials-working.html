@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackRowing | Unforgettable Rowing Teambuilding on Pancharevo Lake</title>
+    <meta name="description" content="Discover HackRowing's unique teambuilding experience on Pancharevo Lake. We build stronger, more synchronized teams through the sport of rowing. Perfect for corporate events.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-light-background: #F0F4F7;
+            --color-dark-text: #343A40;
+            --color-dark-blue: #283964;
+            --color-light-blue: #64c4ea;
+            --color-light-gray: #CCCCCC;
+            --color-white: #FFFFFF;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--color-light-background); color: var(--color-dark-text); }
+        .timeline-item { position: relative; padding-bottom: 2rem; padding-left: 2.5rem; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-marker { position: absolute; left: 0; top: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-white); }
+        .timeline-line { position: absolute; left: 0.6875rem; top: 1.5rem; bottom: 0; width: 2px; }
+
+        /* --- CAROUSEL STYLES --- */
+        .testimonial-carousel-viewport { overflow: hidden; position: relative; }
+        .testimonial-carousel-inner { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial-carousel-card { flex: 0 0 100%; box-sizing: border-box; padding: 0 0.5rem; }
+        .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background-color: rgba(255, 255, 255, 0.9); border-radius: 50%; width: 36px; height: 36px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: opacity 0.3s ease, background-color 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .carousel-arrow:hover { background-color: white; }
+        .carousel-arrow.disabled { cursor: not-allowed; opacity: 0.3; pointer-events: none; }
+        #prev-testimonial { left: 1.25rem; }
+        #next-testimonial { right: 1.25rem; }
+
+        /* --- Read More Styles --- */
+        .testimonial-card-content { position: relative; overflow: hidden; transition: max-height 0.5s ease-in-out; max-height: 250px; }
+        .testimonial-card-content.expanded { max-height: 1000px; }
+        .read-more-gradient { position: absolute; bottom: 0; left: 0; width: 100%; height: 4rem; background: linear-gradient(to top, white, rgba(255,255,255,0)); transition: opacity 0.5s ease; opacity: 1; }
+        .read-more-gradient.hidden-gradient { opacity: 0; }
+    </style>
+</head>
+<body class="pt-20">
+
+    <nav class="bg-white/80 backdrop-blur-lg shadow-md fixed top-0 left-0 right-0 z-50">
+        <!-- Navigation code is unchanged... -->
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+        <header class="text-center mb-12 md:mb-16">
+            <!-- Header code is unchanged... -->
+        </header>
+
+        <main>
+            <!-- Mission, Objectives, Details, Structure sections are unchanged... -->
+
+            <!-- DYNAMICALLY LOADED TESTIMONIALS SECTION -->
+            <section id="testimonials" class="mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);">Recommendations from Happy Clients</h2>
+
+                <div class="relative mt-8 max-w-3xl mx-auto">
+                    <div class="testimonial-carousel-viewport">
+                        <!-- THIS DIV WILL BE POPULATED BY JAVASCRIPT -->
+                        <div class="testimonial-carousel-inner">
+                            <!-- Testimonial cards will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Carousel Navigation Arrows -->
+                    <button id="prev-testimonial" class="carousel-arrow" aria-label="Previous testimonial">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                    </button>
+                    <button id="next-testimonial" class="carousel-arrow" aria-label="Next testimonial">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </button>
+                </div>
+            </section>
+
+            <section id="contact" class="mb-12 md:mb-16">
+                <!-- Contact form is unchanged... -->
+            </section>
+        </main>
+
+        <footer class="text-center pt-8 mt-12 md:mt-16 border-t border-gray-300">
+            <!-- Footer code is unchanged... -->
+        </footer>
+    </div>
+
+    <!-- SCRIPT TO LOAD TESTIMONIALS AND INITIALIZE CAROUSEL -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // =================================================================
+        // STEP 1: LOAD TESTIMONIALS FROM JSON
+        // =================================================================
+        fetch('https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main/testimonials.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(testimonials => {
+                const carouselInner = document.querySelector('.testimonial-carousel-inner');
+                if (!carouselInner) return;
+
+                // Function to generate the HTML for star ratings
+                const generateStarsHTML = (rating) => {
+                    let stars = '';
+                    for (let i = 0; i < rating; i++) {
+                        stars += `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72a1 1 0 01.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path></svg>`;
+                    }
+                    return stars;
+                };
+
+                // Generate HTML for each testimonial and add it to the carousel
+                carouselInner.innerHTML = testimonials.map(testimonial => `
+                    <div class="testimonial-carousel-card">
+                        <div class="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
+                            <div class="flex justify-center mb-2" style="color: var(--color-light-blue);">
+                                ${generateStarsHTML(testimonial.rating)}
+                            </div>
+                            <div class="flex-grow testimonial-card-content">
+                                <p class="italic text-gray-600 mb-4 testimonial-text">${testimonial.text}</p>
+                                <div class="read-more-gradient"></div>
+                            </div>
+                            <div class="mt-4 flex justify-center">
+                                <button class="read-more-btn hidden text-sm font-bold" style="color: var(--color-dark-blue);">Read More</button>
+                                <button class="show-less-btn hidden text-sm font-bold" style="color: var(--color-dark-blue);">Show Less</button>
+                            </div>
+                            <div class="mt-4 text-center pt-4 border-t border-gray-100">
+                                <p class="font-bold text-sm" style="color: var(--color-dark-blue);">${testimonial.author}</p>
+                                ${testimonial.tags.map(tag => `<p class="text-sm text-gray-500">${tag}</p>`).join('')}
+                                <p class="text-sm text-gray-500">#${testimonial.event}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Once HTML is loaded, initialize the carousel
+                initializeCarousel();
+            })
+            .catch(error => {
+                console.error("Error loading testimonials.json:", error);
+                const carouselInner = document.querySelector('.testimonial-carousel-inner');
+                if (carouselInner) {
+                    carouselInner.innerHTML = `<div class="p-4 text-center text-red-600">Could not load testimonials.</div>`;
+                }
+            });
+
+        // =================================================================
+        // STEP 2: INITIALIZE CAROUSEL AND ALL ITS FUNCTIONALITY
+        // =================================================================
+        function initializeCarousel() {
+            const carouselViewport = document.querySelector('.testimonial-carousel-viewport');
+            const carouselInner = document.querySelector('.testimonial-carousel-inner');
+            const carouselCards = document.querySelectorAll('.testimonial-carousel-card');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+
+            if (!carouselInner || !prevButton || !nextButton || carouselCards.length === 0) {
+                return; // Exit if elements are not ready
+            }
+
+            let currentIndex = 0;
+            const totalSlides = carouselCards.length;
+
+            function updateCarousel() {
+                const viewportWidth = carouselViewport.offsetWidth;
+                carouselInner.style.transform = `translateX(-${currentIndex * viewportWidth}px)`;
+                prevButton.classList.toggle('disabled', currentIndex === 0);
+                nextButton.classList.toggle('disabled', currentIndex === totalSlides - 1);
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateCarousel, 100);
+            });
+
+            // Initialize on first run
+            updateCarousel();
+
+            // --- Initialize "Read More" for each new card ---
+            carouselCards.forEach(card => {
+                const contentWrapper = card.querySelector('.testimonial-card-content');
+                if (!contentWrapper) return;
+
+                const readMoreBtn = card.querySelector('.read-more-btn');
+                const showLessBtn = card.querySelector('.show-less-btn');
+                const gradientOverlay = card.querySelector('.read-more-gradient');
+                const text = card.querySelector('.testimonial-text');
+
+                // Check for overflow after a brief delay
+                setTimeout(() => {
+                    const isOverflowing = text.scrollHeight > contentWrapper.clientHeight;
+                    if (isOverflowing) {
+                        readMoreBtn.classList.remove('hidden');
+                    } else {
+                        gradientOverlay.style.display = 'none';
+                    }
+                }, 200);
+
+                readMoreBtn.addEventListener('click', () => {
+                    contentWrapper.classList.add('expanded');
+                    gradientOverlay.classList.add('hidden-gradient');
+                    readMoreBtn.classList.add('hidden');
+                    showLessBtn.classList.remove('hidden');
+                });
+
+                showLessBtn.addEventListener('click', () => {
+                    contentWrapper.classList.remove('expanded');
+                    gradientOverlay.classList.remove('hidden-gradient');
+                    showLessBtn.classList.add('hidden');
+                    readMoreBtn.classList.remove('hidden');
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>
