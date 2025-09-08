@@ -24,8 +24,6 @@
         .timeline-item:last-child { padding-bottom: 0; }
         .timeline-marker { position: absolute; left: 0; top: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-white); }
         .timeline-line { position: absolute; left: 0.6875rem; top: 1.5rem; bottom: 0; width: 2px; }
-
-        /* --- CAROUSEL STYLES (Mobile-Friendly & Correct) --- */
         .testimonial-carousel-viewport { overflow: hidden; position: relative; }
         .testimonial-carousel-inner { display: flex; transition: transform 0.5s ease-in-out; }
         .testimonial-carousel-card { flex: 0 0 100%; box-sizing: border-box; padding: 0 0.5rem; }
@@ -34,8 +32,6 @@
         .carousel-arrow.disabled { cursor: not-allowed; opacity: 0.3; pointer-events: none; }
         #prev-testimonial { left: 1.25rem; }
         #next-testimonial { right: 1.25rem; }
-
-        /* --- Read More Styles --- */
         .testimonial-card-content { position: relative; overflow: hidden; transition: max-height 0.5s ease-in-out; max-height: 250px; }
         .testimonial-card-content.expanded { max-height: 1000px; }
         .read-more-gradient { position: absolute; bottom: 0; left: 0; width: 100%; height: 4rem; background: linear-gradient(to top, white, rgba(255,255,255,0)); transition: opacity 0.5s ease; opacity: 1; }
@@ -50,16 +46,13 @@
                 <div class="flex-shrink-0">
                     <a href="#" class="flex items-center space-x-2">
                         <img src="hackrowing-logo.jpg" alt="HackRowing Logo" class="h-12 w-auto">
-                        <span class="font-bold text-lg" style="color: var(--color-dark-blue);">HackRowing</span>
+                        <span id="nav-brand" class="font-bold text-lg" style="color: var(--color-dark-blue);"></span>
                     </a>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#mission" class="text-gray-700 hover:text-[--color-dark-blue] px-3 py-2 rounded-md text-sm font-medium">Mission</a>
-                        <a href="#objectives" class="text-gray-700 hover:text-[--color-dark-blue] px-3 py-2 rounded-md text-sm font-medium">Objectives</a>
-                        <a href="#structure" class="text-gray-700 hover:text-[--color-dark-blue] px-3 py-2 rounded-md text-sm font-medium">Program</a>
-                        <a href="#testimonials" class="text-gray-700 hover:text-[--color-dark-blue] px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
-                        <a href="#contact" class="text-white font-bold py-2 px-4 rounded-lg transition-transform hover:scale-105" style="background-color: var(--color-light-blue);">Get a Quote</a>
+                    <div id="nav-links-container" class="ml-10 flex items-baseline space-x-4">
+                        <!-- Nav links will be inserted here -->
+                        <a id="nav-cta-button" href="#contact" class="text-white font-bold py-2 px-4 rounded-lg transition-transform hover:scale-105" style="background-color: var(--color-light-blue);"></a>
                     </div>
                 </div>
             </div>
@@ -68,60 +61,38 @@
 
     <div class="container mx-auto p-4 md:p-8 max-w-6xl">
        <header class="text-center mb-12 md:mb-16">
-        <h1 class="text-4xl md:text-6xl font-black" style="color: var(--color-dark-blue);">HackRowing Teambuildings</h1>
-        <img src="hackrowing-logo.jpg" alt="HackRowing Logo" class="max-h-[20vh] max-w-full w-auto block mx-auto my-6">
-        <h2 class="text-4xl md:text-6xl font-black" style="color: var(--color-dark-blue);">Build a Stronger Team, One Stroke at a Time.</h2>
-        <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Experience the ultimate teambuilding activity on Pancharevo Lake with HackRowing.</p>
+            <h1 id="header-main-title" class="text-4xl md:text-6xl font-black" style="color: var(--color-dark-blue);"></h1>
+            <img src="hackrowing-logo.jpg" alt="HackRowing Logo" class="max-h-[20vh] max-w-full w-auto block mx-auto my-6">
+            <h2 id="header-subtitle" class="text-4xl md:text-6xl font-black" style="color: var(--color-dark-blue);"></h2>
+            <p id="header-description" class="mt-4 text-lg md:text-xl max-w-3xl mx-auto"></p>
         </header>
 
         <main>
             <section id="mission" class="mb-12 md:mb-16">
                 <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);">Our Mission</h2>
-                    <p class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4">
-                        HackRowing was founded on the principle that the discipline, persistence, and collaborative effort inherent in rowing are directly transferable to the professional world. We offer a distinctive team-building experience where participants learn that peak performance comes not from individual strength, but from the perfect synchronicity of a cohesive team.
-                    </p>
+                    <h2 id="mission-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                    <p id="mission-text" class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4"></p>
                 </div>
             </section>
             <section id="objectives" class="mb-12 md:mb-16">
                  <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);">What Your Team Will Achieve</h2>
-                    <p class="text-base md:text-lg max-w-3xl mx-auto">Our program is designed for lasting impact on team dynamics, community, and personal growth.</p>
+                    <h2 id="objectives-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2>
+                    <p id="objectives-description" class="text-base md:text-lg max-w-3xl mx-auto"></p>
                 </div>
                 <div class="bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
                         <img src="HackRowingPoster.jpeg" alt="A corporate team rowing together on Pancharevo Lake" class="max-h-[65vh] max-w-full w-auto block mx-auto my-6">
                     </div>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 w-4 h-4 rounded-full mt-1.5 mr-4" style="background-color: var(--color-dark-blue);"></div>
-                            <div>
-                                <h3 class="font-bold text-lg">Enhance Team Cohesion</h3>
-                                <p>Build stronger connections in a dynamic environment that promotes an active lifestyle and true collaboration.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 w-4 h-4 rounded-full mt-1.5 mr-4" style="background-color: var(--color-light-blue);"></div>
-                            <div>
-                                <h3 class="font-bold text-lg">Promote Rowing in Bulgaria</h3>
-                                <p>Increase the accessibility of this amazing sport, encouraging broader participation among the public and youth.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                             <div class="flex-shrink-0 w-4 h-4 rounded-full mt-1.5 mr-4" style="background-color: var(--color-light-gray);"></div>
-                            <div>
-                                <h3 class="font-bold text-lg">Support Community Development</h3>
-                                <p>All proceeds are reinvested into the NSA Rowing Club to improve facilities and support Bulgaria's future athletes.</p>
-                            </div>
-                        </div>
+                    <div id="objectives-list" class="space-y-6">
+                        <!-- Objectives points will be inserted here -->
                     </div>
                 </div>
             </section>
 
             <section id="details" class="mb-12 md:mb-16">
                 <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);">Our Proven Program Format</h2>
-                     <p class="text-base md:text-lg max-w-3xl mx-auto">This structure is tested and highly effective, but we can customize it to fit your needs.</p>
+                    <h2 id="details-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2>
+                     <p id="details-description" class="text-base md:text-lg max-w-3xl mx-auto"></p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                     <div class="bg-white rounded-lg shadow-md p-6"><p class="text-5xl font-black" style="color: var(--color-light-blue);">~6</p><p class="font-bold mt-2">Total Sessions</p></div>
@@ -129,103 +100,172 @@
                     <div class="bg-white rounded-lg shadow-md p-6"><p class="text-5xl font-black" style="color: var(--color-light-blue);">~1.5</p><p class="font-bold mt-2">Hours Per Session</p></div>
                     <div class="bg-white rounded-lg shadow-md p-6"><p class="text-5xl font-black" style="color: var(--color-light-blue);">5-15</p><p class="font-bold mt-2">Participants Per Group</p></div>
                 </div>
-                <p class="text-sm mt-4 text-center italic text-gray-500">*We are flexible and will gladly adapt the program format to your company's specific needs and timeline.</p>
+                <p id="details-disclaimer" class="text-sm mt-4 text-center italic text-gray-500"></p>
             </section>
 
             <section id="structure" class="mb-12 md:mb-16">
                  <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);">Your Team's 6-Session Journey</h2>
-                    <div class="relative max-w-2xl mx-auto mt-8">
-                        <div class="timeline-item"><div class="timeline-marker" style="background-color: var(--color-dark-blue);">1</div><div class="timeline-line" style="background-color: var(--color-dark-blue);"></div><h3 class="font-bold text-lg">Session 1: The Foundation</h3><p>An on-land introduction to rowing technique using Concept 2 ergometers to build core skills.</p></div>
-                        <div class="timeline-item"><div class="timeline-marker" style="background-color: var(--color-dark-blue);">2</div><div class="timeline-line" style="background-color: var(--color-dark-blue);"></div><h3 class="font-bold text-lg">Session 2: First Splash</h3><p>The first hands-on session on the water, applying learned techniques in stable, multi-person boats.</p></div>
-                        <div class="timeline-item"><div class="timeline-marker" style="background-color: var(--color-dark-blue);">3</div><div class="timeline-line" style="background-color: var(--color-light-blue);"></div><h3 class="font-bold text-lg">Session 3: Finding Rhythm</h3><p>Continued on-water practice focusing on developing team synchronicity and communication.</p></div>
-                        <div class="timeline-item"><div class="timeline-marker" style="background-color: var(--color-light-blue);">4</div><div class="timeline-line" style="background-color: var(--color-light-blue);"></div><h3 class="font-bold text-lg">Session 4: Refining Technique</h3><p>Advanced coaching to improve crew efficiency, power, and speed.</p></div>
-                        <div class="timeline-item"><div class="timeline-marker" style="background-color: var(--color-light-blue);">5</div><div class="timeline-line" style="background-color: var(--color-light-blue);"></div><h3 class="font-bold text-lg">Session 5: Race Preparation</h3><p>Crews practice starts and race pace, solidifying their teamwork under pressure.</p></div>
-                        <div class="timeline-item"><div class="timeline-marker" style="background-color: var(--color-light-blue);">6</div><h3 class="font-bold text-lg">Session 6: The Finale</h3><p>A friendly regatta between crews, followed by a closing ceremony with certificates and celebration.</p></div>
+                    <h2 id="structure-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                    <div id="structure-steps" class="relative max-w-2xl mx-auto mt-8">
+                        <!-- Timeline steps will be inserted here -->
                     </div>
                 </div>
             </section>
 
-            <!-- DYNAMICALLY LOADED TESTIMONIALS SECTION -->
             <section id="testimonials" class="mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold text-center p-5" style="color: var(--color-dark-blue);">Recommendations from Happy Clients</h2>
-
-                <div class="relative mt-12 max-w-auto mx-auto">
+                <h2 id="testimonials-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                <div class="relative mt-8 max-w-3xl mx-auto">
                     <div class="testimonial-carousel-viewport">
-                        <!-- THIS DIV WILL BE POPULATED BY JAVASCRIPT -->
-                        <div class="testimonial-carousel-inner">
-                            <!-- Testimonial cards will be inserted here -->
-                        </div>
+                        <div class="testimonial-carousel-inner"></div>
                     </div>
-
-                    <!-- Carousel Navigation Arrows -->
                     <button id="prev-testimonial" class="carousel-arrow" aria-label="Previous testimonial"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg></button>
                     <button id="next-testimonial" class="carousel-arrow" aria-label="Next testimonial"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></button>
                 </div>
             </section>
 
-            <!--<section id="contact" class="mb-12 md:mb-16">-->
-            <!--     <div class="bg-white rounded-lg shadow-md p-6 md:p-8">-->
-            <!--        <h2 class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);">Ready to Build Your Champion Team?</h2>-->
-            <!--        <p class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4">Reach out to us to get a personalized quote and schedule your HackRowing teambuilding experience. We'll get back to you within one business day.</p>-->
-            <!--        <form action="#" method="POST" class="max-w-xl mx-auto mt-8 space-y-4">-->
-            <!--            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label for="name" class="block text-sm font-medium text-gray-700">Your Name</label><input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></div><div><label for="company" class="block text-sm font-medium text-gray-700">Company Name</label><input type="text" name="company" id="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></div></div>-->
-            <!--            <div><label for="email" class="block text-sm font-medium text-gray-700">Email Address</label><input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></div>-->
-            <!--            <div><label for="message" class="block text-sm font-medium text-gray-700">Message (Approx. number of participants, preferred dates, etc.)</label><textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></textarea></div>-->
-            <!--            <div class="text-center"><button type="submit" class="w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-bold rounded-lg text-white transition-transform hover:scale-105" style="background-color: var(--color-dark-blue);">Send Inquiry</button></div>-->
-            <!--        </form>-->
-            <!--     </div>-->
-            <!--</section>-->
+            <section id="contact" class="mb-12 md:mb-16">
+                 <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h2 id="contact-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                    <p id="contact-description" class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4"></p>
+                    <form action="#" method="POST" class="max-w-xl mx-auto mt-8 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><label for="name" id="contact-form-name-label" class="block text-sm font-medium text-gray-700"></label><input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></div>
+                            <div><label for="company" id="contact-form-company-label" class="block text-sm font-medium text-gray-700"></label><input type="text" name="company" id="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></div>
+                        </div>
+                        <div><label for="email" id="contact-form-email-label" class="block text-sm font-medium text-gray-700"></label><input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></div>
+                        <div><label for="message" id="contact-form-message-label" class="block text-sm font-medium text-gray-700"></label><textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[--color-light-blue] focus:border-[--color-light-blue]"></textarea></div>
+                        <div class="text-center"><button id="contact-form-submit-button" type="submit" class="w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-bold rounded-lg text-white transition-transform hover:scale-105" style="background-color: var(--color-dark-blue);"></button></div>
+                    </form>
+                 </div>
+            </section>
         </main>
 
         <footer class="text-center pt-8 mt-12 md:mt-16 border-t border-gray-300">
-            <h2 class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);">Connect with Us</h2>
-            <p class="text-base md:text-lg max-w-3xl mx-auto">Follow our journey on social media or visit us at the lake.</p>
-            <div class="flex justify-center space-x-6 mt-4"><a href="https://www.instagram.com/nsa_rowingclub/" class="hover:text-[#64c4ea] transition-colors" style="color: var(--color-dark-blue);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a><a href="https://www.facebook.com/profile.php?id=100064068644104" class="hover:text-[#64c4ea] transition-colors" style="color: var(--color-dark-blue);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://maps.app.goo.gl/WDdjWr6BggPAQNgo9" class="hover:text-[#64c4ea] transition-colors" style="color: var(--color-dark-blue);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></a></div>
-            <div class="mt-8"><h3 class="font-bold text-xl mb-4" style="color: var(--color-dark-blue);">Our Location</h3><iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d2931.2982823611116!2d23.4070105!3d42.5971224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa81000645b8db%3A0x6c706332430c134b!2sRowing%20club%20NSA!5e1!3m2!1sen!2sbg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md max-w-full"></iframe></div>
-             <p class="text-sm text-gray-500 mt-8">&copy; 2024 HackRowing. All rights reserved.</p>
+            <h2 id="footer-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2>
+            <p id="footer-description" class="text-base md:text-lg max-w-3xl mx-auto"></p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.instagram.com/nsa_rowingclub/" class="hover:text-[#64c4ea] transition-colors" style="color: var(--color-dark-blue);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                <a href="https://www.facebook.com/profile.php?id=100064068644104" class="hover:text-[#64c4ea] transition-colors" style="color: var(--color-dark-blue);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="https://maps.app.goo.gl/WDdjWr6BggPAQNgo9" class="hover:text-[#64c4ea] transition-colors" style="color: var(--color-dark-blue);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></a>
+            </div>
+            <div class="mt-8">
+                <h3 id="footer-location-title" class="font-bold text-xl mb-4" style="color: var(--color-dark-blue);"></h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d2931.2982823611116!2d23.4070105!3d42.5971224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa81000645b8db%3A0x6c706332430c134b!2sRowing%20club%20NSA!5e1!3m2!1sen!2sbg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md max-w-full"></iframe>
+            </div>
+             <p id="footer-copyright" class="text-sm text-gray-500 mt-8"></p>
         </footer>
     </div>
 
-    <!-- SCRIPT TO LOAD TESTIMONIALS AND INITIALIZE CAROUSEL -->
+    <!-- SCRIPT TO LOAD ALL CONTENT AND INITIALIZE CAROUSEL -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main/testimonials.json')
-            .then(response => { if (!response.ok) { throw new Error(`HTTP error! Status: ${response.status}`); } return response.json(); })
+
+        // Function to populate elements from a resources object
+        function populateText(res) {
+            // Navigation
+            document.getElementById('nav-brand').textContent = res.nav.brand;
+            const navLinksContainer = document.getElementById('nav-links-container');
+            let navLinksHTML = res.nav.links.map(link =>
+                `<a href="${link.href}" class="text-gray-700 hover:text-[--color-dark-blue] px-3 py-2 rounded-md text-sm font-medium">${link.text}</a>`
+            ).join('');
+            navLinksContainer.innerHTML = navLinksHTML + navLinksContainer.innerHTML; // Prepend to keep CTA button
+            document.getElementById('nav-cta-button').textContent = res.nav.ctaButton;
+
+            // Header
+            document.getElementById('header-main-title').textContent = res.header.mainTitle;
+            document.getElementById('header-subtitle').textContent = res.header.subtitle;
+            document.getElementById('header-description').textContent = res.header.description;
+
+            // Mission
+            document.getElementById('mission-title').textContent = res.mission.title;
+            document.getElementById('mission-text').textContent = res.mission.text;
+
+            // Objectives
+            document.getElementById('objectives-title').textContent = res.objectives.title;
+            document.getElementById('objectives-description').textContent = res.objectives.description;
+            document.getElementById('objectives-list').innerHTML = res.objectives.points.map(point => `
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-4 h-4 rounded-full mt-1.5 mr-4" style="background-color: var(--color-dark-blue);"></div>
+                    <div><h3 class="font-bold text-lg">${point.title}</h3><p>${point.text}</p></div>
+                </div>
+            `).join('');
+
+            // Details
+            document.getElementById('details-title').textContent = res.details.title;
+            document.getElementById('details-description').textContent = res.details.description;
+            document.getElementById('details-disclaimer').textContent = res.details.disclaimer;
+
+            // Structure
+            document.getElementById('structure-title').textContent = res.structure.title;
+            const timelineColors = ['--color-dark-blue', '--color-dark-blue', '--color-dark-blue', '--color-light-blue', '--color-light-blue', '--color-light-blue'];
+            document.getElementById('structure-steps').innerHTML = res.structure.steps.map((step, index) => `
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background-color: var(${timelineColors[index]});">${index + 1}</div>
+                    ${index < res.structure.steps.length - 1 ? `<div class="timeline-line" style="background-color: var(${timelineColors[index]});"></div>` : ''}
+                    <h3 class="font-bold text-lg">${step.title}</h3><p>${step.text}</p>
+                </div>
+            `).join('');
+
+            // Testimonials Title
+            document.getElementById('testimonials-title').textContent = res.testimonials.title;
+
+            // Contact
+            document.getElementById('contact-title').textContent = res.contact.title;
+            document.getElementById('contact-description').textContent = res.contact.description;
+            document.getElementById('contact-form-name-label').textContent = res.contact.form.nameLabel;
+            document.getElementById('contact-form-company-label').textContent = res.contact.form.companyLabel;
+            document.getElementById('contact-form-email-label').textContent = res.contact.form.emailLabel;
+            document.getElementById('contact-form-message-label').textContent = res.contact.form.messageLabel;
+            document.getElementById('contact-form-submit-button').textContent = res.contact.form.submitButton;
+
+            // Footer
+            document.getElementById('footer-title').textContent = res.footer.title;
+            document.getElementById('footer-description').textContent = res.footer.description;
+            document.getElementById('footer-location-title').textContent = res.footer.locationTitle;
+            document.getElementById('footer-copyright').innerHTML = res.footer.copyright;
+        }
+
+        // Main execution chain
+        fetch('https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main/string_resources.json')
+            .then(response => { if (!response.ok) { throw new Error('Network response was not ok'); } return response.json(); })
+            .then(stringResources => {
+                populateText(stringResources);
+                // Now that the main text is loaded, fetch the testimonials
+                return fetch('https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main/testimonials.json');
+            })
+            .then(response => { if (!response.ok) { throw new Error('Network response was not ok'); } return response.json(); })
             .then(testimonials => {
-                const carouselInner = document.querySelector('.testimonial-carousel-inner');
-                if (!carouselInner) return;
-                const generateStarsHTML = (rating) => { let stars = ''; for (let i = 0; i < rating; i++) { stars += `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72a1 1 0 01.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path></svg>`; } return stars; };
-                carouselInner.innerHTML = testimonials.map(testimonial => `<div class="testimonial-carousel-card"><div class="bg-white rounded-lg shadow-md p-16 h-full flex flex-col"><div class="flex justify-center mb-2" style="color: var(--color-light-blue);">${generateStarsHTML(testimonial.rating)}</div><div class="flex-grow testimonial-card-content"><p class="italic text-gray-600 mb-4 testimonial-text">${testimonial.text}</p><div class="read-more-gradient"></div></div><div class="mt-4 flex justify-center"><button class="read-more-btn hidden text-sm font-bold" style="color: var(--color-dark-blue);">Read More</button><button class="show-less-btn hidden text-sm font-bold" style="color: var(--color-dark-blue);">Show Less</button></div><div class="mt-4 text-center pt-4 border-t border-gray-100"><p class="font-bold text-sm" style="color: var(--color-dark-blue);">${testimonial.author}</p>${testimonial.tags.map(tag => `<p class="text-sm text-gray-500">${tag}</p>`).join('')}<p class="text-sm text-gray-500">#${testimonial.event}</p></div></div></div>`).join('');
+                loadTestimonials(testimonials);
                 initializeCarousel();
             })
-            .catch(error => { console.error("Error loading testimonials.json:", error); const carouselInner = document.querySelector('.testimonial-carousel-inner'); if (carouselInner) { carouselInner.innerHTML = `<div class="p-4 text-center text-red-600">Could not load testimonials.</div>`; } });
+            .catch(error => { console.error("Error loading page content:", error); });
+
+        function loadTestimonials(testimonials) {
+            const carouselInner = document.querySelector('.testimonial-carousel-inner');
+            if (!carouselInner) return;
+            const generateStarsHTML = (rating) => { let stars = ''; for (let i = 0; i < rating; i++) { stars += `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72a1 1 0 01.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path></svg>`; } return stars; };
+            carouselInner.innerHTML = testimonials.map(t => `<div class="testimonial-carousel-card"><div class="bg-white rounded-lg shadow-md p-6 h-full flex flex-col"><div class="flex justify-center mb-2" style="color: var(--color-light-blue);">${generateStarsHTML(t.rating)}</div><div class="flex-grow testimonial-card-content"><p class="italic text-gray-600 mb-4 testimonial-text">${t.text}</p><div class="read-more-gradient"></div></div><div class="mt-4 flex justify-center"><button class="read-more-btn hidden text-sm font-bold" style="color: var(--color-dark-blue);">Read More</button><button class="show-less-btn hidden text-sm font-bold" style="color: var(--color-dark-blue);">Show Less</button></div><div class="mt-4 text-center pt-4 border-t border-gray-100"><p class="font-bold text-sm" style="color: var(--color-dark-blue);">${t.author}</p>${t.tags.map(tag => `<p class="text-sm text-gray-500">${tag}</p>`).join('')}<p class="text-sm text-gray-500">#${t.event}</p></div></div></div>`).join('');
+        }
 
         function initializeCarousel() {
-            const carouselViewport = document.querySelector('.testimonial-carousel-viewport');
-            const carouselInner = document.querySelector('.testimonial-carousel-inner');
-            const carouselCards = document.querySelectorAll('.testimonial-carousel-card');
-            const prevButton = document.getElementById('prev-testimonial');
-            const nextButton = document.getElementById('next-testimonial');
-            if (!carouselInner || !prevButton || !nextButton || carouselCards.length === 0) { return; }
+            const viewport = document.querySelector('.testimonial-carousel-viewport');
+            const inner = document.querySelector('.testimonial-carousel-inner');
+            const cards = document.querySelectorAll('.testimonial-carousel-card');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            if (!viewport || !inner || cards.length === 0) return;
             let currentIndex = 0;
-            const totalSlides = carouselCards.length;
-            function updateCarousel() { const viewportWidth = carouselViewport.offsetWidth; carouselInner.style.transform = `translateX(-${currentIndex * viewportWidth}px)`; prevButton.classList.toggle('disabled', currentIndex === 0); nextButton.classList.toggle('disabled', currentIndex === totalSlides - 1); }
-            prevButton.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; updateCarousel(); } });
-            nextButton.addEventListener('click', () => { if (currentIndex < totalSlides - 1) { currentIndex++; updateCarousel(); } });
-            let resizeTimeout;
-            window.addEventListener('resize', () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(updateCarousel, 100); });
-            updateCarousel();
-            carouselCards.forEach(card => {
-                const contentWrapper = card.querySelector('.testimonial-card-content');
-                if (!contentWrapper) return;
-                const readMoreBtn = card.querySelector('.read-more-btn');
-                const showLessBtn = card.querySelector('.show-less-btn');
-                const gradientOverlay = card.querySelector('.read-more-gradient');
-                const text = card.querySelector('.testimonial-text');
-                setTimeout(() => { const isOverflowing = text.scrollHeight > contentWrapper.clientHeight; if (isOverflowing) { readMoreBtn.classList.remove('hidden'); } else { gradientOverlay.style.display = 'none'; } }, 200);
-                readMoreBtn.addEventListener('click', () => { contentWrapper.classList.add('expanded'); gradientOverlay.classList.add('hidden-gradient'); readMoreBtn.classList.add('hidden'); showLessBtn.classList.remove('hidden'); });
-                showLessBtn.addEventListener('click', () => { contentWrapper.classList.remove('expanded'); gradientOverlay.classList.remove('hidden-gradient'); showLessBtn.classList.add('hidden'); readMoreBtn.classList.remove('hidden'); });
+            const update = () => { inner.style.transform = `translateX(-${currentIndex * 100}%)`; prevBtn.classList.toggle('disabled', currentIndex === 0); nextBtn.classList.toggle('disabled', currentIndex === cards.length - 1); };
+            prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; update(); } });
+            nextBtn.addEventListener('click', () => { if (currentIndex < cards.length - 1) { currentIndex++; update(); } });
+            window.addEventListener('resize', update);
+            update();
+            cards.forEach(card => {
+                const content = card.querySelector('.testimonial-card-content'), text = card.querySelector('.testimonial-text'), moreBtn = card.querySelector('.read-more-btn'), lessBtn = card.querySelector('.show-less-btn'), grad = card.querySelector('.read-more-gradient');
+                if (!content || !text) return;
+                setTimeout(() => { if (text.scrollHeight > content.clientHeight) moreBtn.classList.remove('hidden'); else grad.style.display = 'none'; }, 200);
+                moreBtn.addEventListener('click', () => { content.classList.add('expanded'); grad.classList.add('hidden-gradient'); moreBtn.classList.add('hidden'); lessBtn.classList.remove('hidden'); });
+                lessBtn.addEventListener('click', () => { content.classList.remove('expanded'); grad.classList.remove('hidden-gradient'); lessBtn.classList.add('hidden'); moreBtn.classList.remove('hidden'); });
             });
         }
     });
