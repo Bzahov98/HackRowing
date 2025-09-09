@@ -100,7 +100,7 @@
             async function loadLanguage(lang) {
                 currentLang = lang; document.documentElement.lang = lang; localStorage.setItem('language', lang);
                 langSwitcher.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-                const gitRepoUrl = 'https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main';
+                const gitRepoUrl = 'https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main/StringResources';
                 const stringsFile = lang === 'bg' ? `${gitRepoUrl}/string_resources_bg.json` : `${gitRepoUrl}/string_resources.json`;
                 const testimonialsFile = lang === 'bg' ? `${gitRepoUrl}/testimonials_bg.json` : `${gitRepoUrl}/testimonials.json`;
                 const svgFile = `${gitRepoUrl}/svg_files.json`;
