@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HackRowing | Unforgettable Rowing Teambuilding on Pancharevo Lake</title>
     <meta name="description" content="Discover HackRowing's unique teambuilding experience on Pancharevo Lake. We build stronger, more synchronized teams through the sport of rowing. Perfect for corporate events.">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --color-light-background: #F0F4F7;
@@ -19,29 +22,143 @@
             --color-light-gray: #CCCCCC;
             --color-white: #FFFFFF;
         }
-        body { font-family: 'Inter', sans-serif; background-color: var(--color-light-background); color: var(--color-dark-text); }
-        .timeline-item { position: relative; padding-bottom: 2rem; padding-left: 2.5rem; }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .timeline-marker { position: absolute; left: 0; top: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-white); }
-        .timeline-line { position: absolute; left: 0.6875rem; top: 1.5rem; bottom: 0; width: 2px; }
-        .testimonial-carousel-viewport { overflow: hidden; position: relative; }
-        .testimonial-carousel-inner { display: flex; transition: transform 0.5s ease-in-out; }
-        .testimonial-carousel-card { flex: 0 0 100%; box-sizing: border-box;  padding-bottom: 1rem; padding: 0 0.5rem; }
-        .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background-color: rgba(255, 255, 255, 0.9); border-radius: 50%; width: 36px; height: 36px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: opacity 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-        .carousel-arrow.disabled { cursor: not-allowed; opacity: 0.3; pointer-events: none; }
-        #prev-testimonial { left: 1.25rem; }
-        #next-testimonial { right: 1.25rem; }
-        .testimonial-card-content { position: relative; overflow: hidden; transition: max-height 0.5s ease-in-out; max-height: 250px; }
-        .testimonial-card-content.expanded { max-height: 1000px; }
-        .read-more-gradient { position: absolute; bottom: 0; left: 0; width: 100%; height: 4rem; background: linear-gradient(to top, white, rgba(255,255,255,0)); opacity: 1; }
-        .read-more-gradient.hidden-gradient { opacity: 0; }
-        .lang-switcher button { background: none; border: none; font-weight: 500; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 5px; transition: background-color 0.2s; color: #6b7280; }
-        .lang-switcher button:hover { background-color: #f3f4f6; }
-        .lang-switcher button.active { font-weight: 700; color: var(--color-dark-blue); }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-light-background);
+            color: var(--color-dark-text);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--color-white);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0.6875rem;
+            top: 1.5rem;
+            bottom: 0;
+            width: 2px;
+        }
+
+        .testimonial-carousel-viewport {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-carousel-card {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+            padding-bottom: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-arrow.disabled {
+            cursor: not-allowed;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        #prev-testimonial {
+            left: 1.25rem;
+        }
+
+        #next-testimonial {
+            right: 1.25rem;
+        }
+
+        .testimonial-card-content {
+            position: relative;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            max-height: 250px;
+        }
+
+        .testimonial-card-content.expanded {
+            max-height: 1000px;
+        }
+
+        .read-more-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4rem;
+            background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+            opacity: 1;
+        }
+
+        .read-more-gradient.hidden-gradient {
+            opacity: 0;
+        }
+
+        .lang-switcher button {
+            background: none;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+            color: #6b7280;
+        }
+
+        .lang-switcher button:hover {
+            background-color: #f3f4f6;
+        }
+
+        .lang-switcher button.active {
+            font-weight: 700;
+            color: var(--color-dark-blue);
+        }
     </style>
 </head>
+
 <body class="pt-20">
 
+    <!-- Navigation Bar -->
     <nav class="bg-white/80 backdrop-blur-lg shadow-md fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -63,21 +180,104 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+        <!-- Header Section -->
         <header class="text-center mb-12 md:mb-16">
-            <!--<h1 id="header-main-title" class="text-4xl md:text-6xl font-black" style="color: var(--color-dark-blue);"></h1>-->
             <img src="hackrowing-logo.jpg" alt="HackRowing Logo" class="max-h-[25vh] max-w-full w-auto block mx-auto my-6">
             <h2 id="header-subtitle" class="text-2xl md:text-4xl font-black" style="color: var(--color-dark-blue);"></h2>
             <p id="header-description" class="mt-4 text-lg md:text-xl max-w-3xl mx-auto"></p>
         </header>
+
         <main>
-            <section id="mission" class="mb-12 md:mb-16"><div class="bg-white rounded-lg shadow-md p-6 md:p-8"><h2 id="mission-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2><p id="mission-text" class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4"></p></div></section>
-            <section id="objectives" class="mb-12 md:mb-16"><div class="text-center mb-8"><h2 id="objectives-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2><p id="objectives-description" class="text-base md:text-lg max-w-3xl mx-auto"></p></div><div class="bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"><div><img src="HackRowingPoster.jpeg" alt="A corporate team rowing together on Pancharevo Lake" class="max-h-[65vh] max-w-full w-auto block mx-auto my-6"></div><div id="objectives-list" class="space-y-6"></div></div></section>
-            <section id="details" class="mb-12 md:mb-16"><div class="text-center mb-8"><h2 id="details-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2><p id="details-description" class="text-base md:text-lg max-w-3xl mx-auto"></p></div><div id="details-metrics-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"></div><p id="details-disclaimer" class="text-sm mt-4 text-center italic text-gray-500"></p></section>
-            <section id="structure" class="mb-12 md:mb-16"><div class="bg-white rounded-lg shadow-md p-6 md:p-8"><h2 id="structure-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2><div id="structure-steps" class="relative max-w-2xl mx-auto mt-8"></div></div></section>
-            <section id="testimonials" class="mb-12 md:mb-16"><h2 id="testimonials-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2><div class="relative mt-8 max-w-3xl mx-auto"><div class="testimonial-carousel-viewport"><div class="testimonial-carousel-inner"></div></div><button id="prev-testimonial" class="carousel-arrow"><span data-svg-id="arrow-left"></span></button><button id="next-testimonial" class="carousel-arrow"><span data-svg-id="arrow-right"></span></button></div></section>
-            <section id="contact" class="mb-12 md:mb-16"><div class="bg-white rounded-lg shadow-md p-6 md:p-8"><h2 id="contact-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2><p id="contact-description" class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4"></p><form action="#" method="POST" class="max-w-xl mx-auto mt-8 space-y-4"><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label for="name" id="contact-form-name-label" class="block text-sm font-medium text-gray-700"></label><input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none"></div><div><label for="company" id="contact-form-company-label" class="block text-sm font-medium text-gray-700"></label><input type="text" name="company" id="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none"></div></div><div><label for="email" id="contact-form-email-label" class="block text-sm font-medium text-gray-700"></label><input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none"></div><div><label for="message" id="contact-form-message-label" class="block text-sm font-medium text-gray-700"></label><textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none"></textarea></div><div class="text-center"><button id="contact-form-submit-button" type="submit" class="w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-bold rounded-lg text-white transition-transform hover:scale-105" style="background-color: var(--color-dark-blue);"></button></div></form></div></section>
+            <!-- Mission Section -->
+            <section id="mission" class="mb-12 md:mb-16">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h2 id="mission-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                    <p id="mission-text" class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4"></p>
+                </div>
+            </section>
+
+            <!-- Objectives Section -->
+            <section id="objectives" class="mb-12 md:mb-16">
+                <div class="text-center mb-8">
+                    <h2 id="objectives-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2>
+                    <p id="objectives-description" class="text-base md:text-lg max-w-3xl mx-auto"></p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="HackRowingPoster.jpeg" alt="A corporate team rowing together on Pancharevo Lake" class="max-h-[65vh] max-w-full w-auto block mx-auto my-6">
+                    </div>
+                    <div id="objectives-list" class="space-y-6"></div>
+                </div>
+            </section>
+
+            <!-- Details/Metrics Section -->
+            <section id="details" class="mb-12 md:mb-16">
+                <div class="text-center mb-8">
+                    <h2 id="details-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2>
+                    <p id="details-description" class="text-base md:text-lg max-w-3xl mx-auto"></p>
+                </div>
+                <div id="details-metrics-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"></div>
+                <p id="details-disclaimer" class="text-sm mt-4 text-center italic text-gray-500"></p>
+            </section>
+
+            <!-- Structure/Timeline Section -->
+            <section id="structure" class="mb-12 md:mb-16">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h2 id="structure-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                    <div id="structure-steps" class="relative max-w-2xl mx-auto mt-8"></div>
+                </div>
+                <p id="details-disclaimer_2" class="text-sm mt-4 text-center italic text-gray-500"></p>
+
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="mb-12 md:mb-16">
+                <h2 id="testimonials-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                <div class="relative mt-8 max-w-3xl mx-auto">
+                    <div class="testimonial-carousel-viewport">
+                        <div class="testimonial-carousel-inner"></div>
+                    </div>
+                    <button id="prev-testimonial" class="carousel-arrow"><span data-svg-id="arrow-left"></span></button>
+                    <button id="next-testimonial" class="carousel-arrow"><span data-svg-id="arrow-right"></span></button>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="mb-12 md:mb-16">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h2 id="contact-title" class="text-2xl md:text-3xl font-bold text-center" style="color: var(--color-dark-blue);"></h2>
+                    <p id="contact-description" class="text-base md:text-lg text-center max-w-3xl mx-auto mt-4"></p>
+                    <form action="#" method="POST" class="max-w-xl mx-auto mt-8 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" id="contact-form-name-label" class="block text-sm font-medium text-gray-700"></label>
+                                <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="company" id="contact-form-company-label" class="block text-sm font-medium text-gray-700"></label>
+                                <input type="text" name="company" id="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" id="contact-form-email-label" class="block text-sm font-medium text-gray-700"></label>
+                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="message" id="contact-form-message-label" class="block text-sm font-medium text-gray-700"></label>
+                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button id="contact-form-submit-button" type="submit" class="w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-bold rounded-lg text-white transition-transform hover:scale-105" style="background-color: var(--color-dark-blue);"></button>
+                        </div>
+                    </form>
+                </div>
+            </section>
         </main>
+
+        <!-- Footer -->
         <footer class="text-center pt-8 mt-12 md:mt-16 border-t border-gray-300">
             <h2 id="footer-title" class="text-2xl md:text-3xl font-bold" style="color: var(--color-dark-blue);"></h2>
             <p id="footer-description" class="text-base md:text-lg max-w-3xl mx-auto"></p>
@@ -86,7 +286,10 @@
                 <a href="https://www.facebook.com/profile.php?id=100064068644104" class="hover:text-[var(--color-light-blue)] transition-colors" style="color: var(--color-dark-blue);"><span data-svg-id="facebook"></span></a>
                 <a href="https://maps.app.goo.gl/WDdjWr6BggPAQNgo9" class="hover:text-[var(--color-light-blue)] transition-colors" style="color: var(--color-dark-blue);"><span data-svg-id="map-pin"></span></a>
             </div>
-            <div class="mt-8"><h3 id="footer-location-title" class="font-bold text-xl mb-4" style="color: var(--color-dark-blue);"></h3><iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d2931.2982823611116!2d23.4070105!3d42.5971224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa81000645b8db%3A0x6c706332430c134b!2sRowing%20club%20NSA!5e1!3m2!1sen!2sbg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md max-w-full"></iframe></div>
+            <div class="mt-8">
+                <h3 id="footer-location-title" class="font-bold text-xl mb-4" style="color: var(--color-dark-blue);"></h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d2931.2982823611116!2d23.4070105!3d42.5971224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa81000645b8db%3A0x6c706332430c134b!2sRowing%20club%20NSA!5e1!3m2!1sen!2sbg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md max-w-full"></iframe>
+            </div>
             <p id="footer-copyright" class="text-sm text-gray-500 mt-8"></p>
         </footer>
     </div>
@@ -97,34 +300,69 @@
             let currentLang = 'en';
             let svgIcons = {}; // Global store for SVG icons
 
+            /**
+             * Fetches and applies language resources to the page.
+             * @param {string} lang - The language to load ('en' or 'bg').
+             */
             async function loadLanguage(lang) {
-                currentLang = lang; document.documentElement.lang = lang; localStorage.setItem('language', lang);
-                langSwitcher.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-                const gitRepoUrl = 'https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main/StringResources';
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                localStorage.setItem('language', lang);
+
+                langSwitcher.querySelectorAll('button').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+
+                // Setup resoure files loaded dynamicaly from the network
+                const baseUrl = 'https://raw.githubusercontent.com/Bzahov98/HackRowing/refs/heads/main';
+                const gitRepoUrl = `${baseUrl}/StringResources`;
                 const stringsFile = lang === 'bg' ? `${gitRepoUrl}/string_resources_bg.json` : `${gitRepoUrl}/string_resources.json`;
                 const testimonialsFile = lang === 'bg' ? `${gitRepoUrl}/testimonials_bg.json` : `${gitRepoUrl}/testimonials.json`;
                 const svgFile = `${gitRepoUrl}/svg_files.json`;
 
+                // Fetch all resource files concurrently
                 try {
-                    // Fetch all three resource files concurrently
-                    const [stringsRes, testimonialsRes, svgRes] = await Promise.all([ fetch(stringsFile), fetch(testimonialsFile), fetch(svgFile) ]);
-                    if (!stringsRes.ok || !testimonialsRes.ok || !svgRes.ok) throw new Error('Failed to load one or more resource files.');
+                    const [stringsRes, testimonialsRes, svgRes] = await Promise.all([
+                        fetch(stringsFile),
+                        fetch(testimonialsFile),
+                        fetch(svgFile)
+                    ]);
+
+                    if (!stringsRes.ok || !testimonialsRes.ok || !svgRes.ok) {
+                        throw new Error('Failed to load one or more resource files.');
+                    }
 
                     const strings = await stringsRes.json();
                     const testimonials = await testimonialsRes.json();
                     svgIcons = await svgRes.json(); // Store SVGs globally
 
-                    // Populate the page in order
+                    // Populate the page content in order
                     populateText(strings);
-                    populateSvgs(svgIcons); // New step
+                    populateSvgs(svgIcons);
                     loadTestimonials(testimonials);
                     initializeCarousel();
-                } catch (error) { console.error("Error loading language content:", error); }
+
+                } catch (error) {
+                    console.error("Error loading language content:", error);
+                }
             }
 
-            const setText = (id, text) => { const el = document.getElementById(id); if (el) el.innerHTML = text; };
+            /**
+             * Helper function to set the innerHTML of an element by its ID.
+             * @param {string} id - The ID of the element.
+             * @param {string} text - The HTML content to set.
+             */
+            const setText = (id, text) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerHTML = text;
+                }
+            };
 
-            // New function to inject SVGs into their placeholders
+            /**
+             * Injects SVG icons into placeholder elements.
+             * @param {object} icons - An object mapping SVG IDs to SVG code.
+             */
             const populateSvgs = (icons) => {
                 document.querySelectorAll('[data-svg-id]').forEach(el => {
                     const svgId = el.dataset.svgId;
@@ -134,66 +372,205 @@
                 });
             };
 
-            populateText = (res) => {
+            /**
+             * Populates all text elements on the page from the language resource file.
+             * @param {object} res - The language strings object.
+             */
+            const populateText = (res) => {
                 setText('nav-brand', res.nav.brand);
-                document.getElementById('nav-links-container').innerHTML = res.nav.links.map(l => `<a href="${l.href}" class="text-gray-700 hover:text-[var(--color-dark-blue)] px-3 py-2 rounded-md text-sm font-medium">${l.text}</a>`).join('');
+                document.getElementById('nav-links-container').innerHTML = res.nav.links
+                    .map(l => `<a href="${l.href}" class="text-gray-700 hover:text-[var(--color-dark-blue)] px-3 py-2 rounded-md text-sm font-medium">${l.text}</a>`)
+                    .join('');
                 setText('nav-cta-button', res.nav.ctaButton);
-                setText('header-main-title', res.header.mainTitle); setText('header-subtitle', res.header.subtitle); setText('header-description', res.header.description);
-                setText('mission-title', res.mission.title); setText('mission-text', res.mission.text);
-                setText('objectives-title', res.objectives.title); setText('objectives-description', res.objectives.description);
+
+                setText('header-subtitle', res.header.subtitle);
+                setText('header-description', res.header.description);
+
+                setText('mission-title', res.mission.title);
+                setText('mission-text', res.mission.text);
+
+                setText('objectives-title', res.objectives.title);
+                setText('objectives-description', res.objectives.description);
                 const objectiveColors = ['--color-dark-blue', '--color-light-blue', '--color-light-gray'];
-                document.getElementById('objectives-list').innerHTML = res.objectives.points.map((p, i) => `<div class="flex items-start"><div class="flex-shrink-0 w-4 h-4 rounded-full mt-1.5 mr-4" style="background-color:var(${objectiveColors[i]});"></div><div><h3 class="font-bold text-lg">${p.title}</h3><p>${p.text}</p></div></div>`).join('');
-                setText('details-title', res.details.title); setText('details-description', res.details.description);
+                document.getElementById('objectives-list').innerHTML = res.objectives.points
+                    .map((p, i) => `
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-4 h-4 rounded-full mt-1.5 mr-4" style="background-color:var(${objectiveColors[i]});"></div>
+                            <div>
+                                <h3 class="font-bold text-lg">${p.title}</h3>
+                                <p>${p.text}</p>
+                            </div>
+                        </div>`)
+                    .join('');
+
+                setText('details-title', res.details.title);
+                setText('details-description', res.details.description);
                 const metricsContainer = document.getElementById('details-metrics-container');
-                if (metricsContainer && res.details.metrics) { metricsContainer.innerHTML = res.details.metrics.map(metric => `<div class="bg-white rounded-lg shadow-md p-6"><p class="text-5xl font-black" style="color: var(--color-light-blue);">${metric.value}</p><p class="font-bold mt-2">${metric.label}</p></div>`).join(''); }
+                if (metricsContainer && res.details.metrics) {
+                    metricsContainer.innerHTML = res.details.metrics
+                        .map(metric => `
+                            <div class="bg-white rounded-lg shadow-md p-6">
+                                <p class="text-5xl font-black" style="color: var(--color-light-blue);">${metric.value}</p>
+                                <p class="font-bold mt-2">${metric.label}</p>
+                            </div>`)
+                        .join('');
+                }
                 setText('details-disclaimer', res.details.disclaimer);
+                setText('details-disclaimer_2', res.details.disclaimer);
+
                 setText('structure-title', res.structure.title);
-                const timelineColors = ['--color-dark-blue','--color-dark-blue','--color-dark-blue','--color-light-blue','--color-light-blue','--color-light-blue'];
-                document.getElementById('structure-steps').innerHTML = res.structure.steps.map((s, i) => `<div class="timeline-item"><div class="timeline-marker" style="background-color:var(${timelineColors[i]});">${i+1}</div>${i<res.structure.steps.length-1?`<div class="timeline-line" style="background-color:var(${timelineColors[i]});"></div>`:''}<h3 class="font-bold text-lg">${s.title}</h3><p>${s.text}</p></div>`).join('');
+                const timelineColors = ['--color-dark-blue', '--color-dark-blue', '--color-dark-blue', '--color-light-blue', '--color-light-blue', '--color-light-blue'];
+                document.getElementById('structure-steps').innerHTML = res.structure.steps
+                    .map((s, i) => `
+                        <div class="timeline-item">
+                            <div class="timeline-marker" style="background-color:var(${timelineColors[i]});">${i + 1}</div>
+                            ${i < res.structure.steps.length - 1 ? `<div class="timeline-line" style="background-color:var(${timelineColors[i]});"></div>` : ''}
+                            <h3 class="font-bold text-lg">${s.title}</h3>
+                            <p>${s.text}</p>
+                        </div>`)
+                    .join('');
+
                 setText('testimonials-title', res.testimonials.title);
-                setText('contact-title', res.contact.title); setText('contact-description', res.contact.description); setText('contact-form-name-label', res.contact.form.nameLabel); setText('contact-form-company-label', res.contact.form.companyLabel); setText('contact-form-email-label', res.contact.form.emailLabel); setText('contact-form-message-label', res.contact.form.messageLabel); setText('contact-form-submit-button', res.contact.form.submitButton);
-                setText('footer-title', res.footer.title); setText('footer-description', res.footer.description); setText('footer-location-title', res.footer.locationTitle); setText('footer-copyright', res.footer.copyright);
+
+                setText('contact-title', res.contact.title);
+                setText('contact-description', res.contact.description);
+                setText('contact-form-name-label', res.contact.form.nameLabel);
+                setText('contact-form-company-label', res.contact.form.companyLabel);
+                setText('contact-form-email-label', res.contact.form.emailLabel);
+                setText('contact-form-message-label', res.contact.form.messageLabel);
+                setText('contact-form-submit-button', res.contact.form.submitButton);
+
+                setText('footer-title', res.footer.title);
+                setText('footer-description', res.footer.description);
+                setText('footer-location-title', res.footer.locationTitle);
+                setText('footer-copyright', res.footer.copyright);
             };
 
-            loadTestimonials = (testimonials) => {
-                const carouselInner = document.querySelector('.testimonial-carousel-inner'); if (!carouselInner) return;
-                // Now uses the globally stored svgIcons object
-                const generateStarsHTML = r => Array(r).fill(svgIcons.star || '').join('');
-                carouselInner.innerHTML = testimonials.map(t =>
-                    `<div class="testimonial-carousel-card"><div class="bg-white rounded-lg shadow-md p-16 h-full flex flex-col" style="padding-top: 2rem; padding-bottom: 1rem;";>
-                        <div class="flex justify-center mb-2" style="color:var(--color-light-blue);">${generateStarsHTML(t.rating)}</div>
-                        <div class="flex-grow testimonial-card-content"><p class="italic text-gray-600 mb-4 testimonial-text">${t.text}</p>
-                        <div class="read-more-gradient"></div></div><div class="mt-4 flex justify-center">
-                        <button class="read-more-btn hidden text-sm font-bold" style="color:var(--color-dark-blue);">Read More</button><button class="show-less-btn hidden text-sm font-bold" style="color:var(--color-dark-blue);">Show Less</button></div>
-                        <div class="mt-4 text-center pt-4 border-t border-gray-100"><p class="font-bold text-sm" style="color:var(--color-dark-blue);">${t.author}</p>${t.tags.map(tag=>`<p class="text-sm text-gray-500">${tag}</p>`).join('')}
-                        <p class="text-sm text-gray-500">#${t.event}</p></div></div></div>`
+            /**
+             * Populates the testimonials carousel with data.
+             * @param {Array} testimonials - An array of testimonial objects.
+             */
+            const loadTestimonials = (testimonials) => {
+                const carouselInner = document.querySelector('.testimonial-carousel-inner');
+                if (!carouselInner) return;
+
+                const generateStarsHTML = rating => Array(rating).fill(svgIcons.star || '').join('');
+
+                carouselInner.innerHTML = testimonials.map(t => `
+                    <div class="testimonial-carousel-card">
+                        <div class="bg-white rounded-lg shadow-md p-16 h-full flex flex-col" style="padding-top: 2rem; padding-bottom: 1rem;">
+                            <div class="flex justify-center mb-2" style="color:var(--color-light-blue);">
+                                ${generateStarsHTML(t.rating)}
+                            </div>
+                            <div class="flex-grow testimonial-card-content">
+                                <p class="italic text-gray-600 mb-4 testimonial-text">${t.text}</p>
+                                <div class="read-more-gradient"></div>
+                            </div>
+                            <div class="mt-4 flex justify-center">
+                                <button class="read-more-btn hidden text-sm font-bold" style="color:var(--color-dark-blue);">Read More</button>
+                                <button class="show-less-btn hidden text-sm font-bold" style="color:var(--color-dark-blue);">Show Less</button>
+                            </div>
+                            <div class="mt-4 text-center pt-4 border-t border-gray-100">
+                                <p class="font-bold text-sm" style="color:var(--color-dark-blue);">${t.author}</p>
+                                ${t.tags.map(tag => `<p class="text-sm text-gray-500">${tag}</p>`).join('')}
+                                <p class="text-sm text-gray-500">#${t.event}</p>
+                            </div>
+                        </div>
+                    </div>`
                 ).join('');
             };
 
-            initializeCarousel = () => {
-                const viewport = document.querySelector('.testimonial-carousel-viewport'), inner = document.querySelector('.testimonial-carousel-inner'), cards = document.querySelectorAll('.testimonial-carousel-card'), prevBtn = document.getElementById('prev-testimonial'), nextBtn = document.getElementById('next-testimonial');
-                if (!viewport || !inner || cards.length === 0) return; let currentIndex = 0;
-                const update = () => { inner.style.transform = `translateX(-${currentIndex * 100}%)`; prevBtn.classList.toggle('disabled', currentIndex === 0); nextBtn.classList.toggle('disabled', currentIndex === cards.length - 1); };
-                prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; update(); } });
-                nextBtn.addEventListener('click', () => { if (currentIndex < cards.length - 1) { currentIndex++; update(); } });
-                window.addEventListener('resize', update); update();
-                cards.forEach(card => { const content = card.querySelector('.testimonial-card-content'), text = card.querySelector('.testimonial-text'), moreBtn = card.querySelector('.read-more-btn'), lessBtn = card.querySelector('.show-less-btn'), grad = card.querySelector('.read-more-gradient'); if (!content || !text) return; setTimeout(() => { if (text.scrollHeight > content.clientHeight) moreBtn.classList.remove('hidden'); else grad.style.display = 'none'; }, 200); moreBtn.addEventListener('click', () => { content.classList.add('expanded'); grad.classList.add('hidden-gradient'); moreBtn.classList.add('hidden'); lessBtn.classList.remove('hidden'); }); lessBtn.addEventListener('click', () => { content.classList.remove('expanded'); grad.classList.remove('hidden-gradient'); lessBtn.classList.add('hidden'); moreBtn.classList.remove('hidden'); }); });
+            /**
+             * Initializes the logic for the testimonials carousel.
+             */
+            const initializeCarousel = () => {
+                const viewport = document.querySelector('.testimonial-carousel-viewport');
+                const inner = document.querySelector('.testimonial-carousel-inner');
+                const cards = document.querySelectorAll('.testimonial-carousel-card');
+                const prevBtn = document.getElementById('prev-testimonial');
+                const nextBtn = document.getElementById('next-testimonial');
+
+                if (!viewport || !inner || cards.length === 0) return;
+
+                let currentIndex = 0;
+
+                const update = () => {
+                    inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    prevBtn.classList.toggle('disabled', currentIndex === 0);
+                    nextBtn.classList.toggle('disabled', currentIndex === cards.length - 1);
+                };
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        update();
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < cards.length - 1) {
+                        currentIndex++;
+                        update();
+                    }
+                });
+
+                window.addEventListener('resize', update);
+                update(); // Initial setup
+
+                // Add "Read More" functionality to each card
+                cards.forEach(card => {
+                    const content = card.querySelector('.testimonial-card-content');
+                    const text = card.querySelector('.testimonial-text');
+                    const moreBtn = card.querySelector('.read-more-btn');
+                    const lessBtn = card.querySelector('.show-less-btn');
+                    const grad = card.querySelector('.read-more-gradient');
+
+                    if (!content || !text) return;
+
+                    // Use a short timeout to ensure layout is calculated
+                    setTimeout(() => {
+                        if (text.scrollHeight > content.clientHeight) {
+                            moreBtn.classList.remove('hidden');
+                        } else {
+                            grad.style.display = 'none';
+                        }
+                    }, 200);
+
+                    moreBtn.addEventListener('click', () => {
+                        content.classList.add('expanded');
+                        grad.classList.add('hidden-gradient');
+                        moreBtn.classList.add('hidden');
+                        lessBtn.classList.remove('hidden');
+                    });
+
+                    lessBtn.addEventListener('click', () => {
+                        content.classList.remove('expanded');
+                        grad.classList.remove('hidden-gradient');
+                        lessBtn.classList.add('hidden');
+                        moreBtn.classList.remove('hidden');
+                    });
+                });
             };
 
-            // Initial Load Logic
+            // --- Initial Load Logic ---
+
             const savedLang = localStorage.getItem('language');
             const browserLang = navigator.language.split('-')[0];
             const initialLang = savedLang || (browserLang === 'bg' ? 'bg' : 'en');
             loadLanguage(initialLang);
 
-            // Event Listener for Switcher
+            // --- Event Listener for Language Switcher ---
+
             langSwitcher.addEventListener('click', (e) => {
                 if (e.target.tagName === 'BUTTON') {
                     const selectedLang = e.target.dataset.lang;
-                    if (selectedLang !== currentLang) loadLanguage(selectedLang);
+                    if (selectedLang !== currentLang) {
+                        loadLanguage(selectedLang);
+                    }
                 }
             });
         });
     </script>
 </body>
+
 </html>
