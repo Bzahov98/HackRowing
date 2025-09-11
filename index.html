@@ -153,6 +153,10 @@
             font-weight: 700;
             color: var(--color-dark-blue);
         }
+
+        #mobile-menu-panel.open {
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -168,21 +172,75 @@
                         <span id="nav-brand" class="font-bold text-lg" style="color: var(--color-dark-blue);"></span>
                     </a>
                 </div>
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center">
                     <div id="nav-links-container" class="ml-10 flex items-baseline space-x-4"></div>
                     <a id="nav-cta-button" href="#contact" class="ml-6 text-white font-bold py-2 px-4 rounded-lg transition-transform hover:scale-105" style="background-color: var(--color-light-blue);"></a>
-                    <div id="lang-switcher" class="lang-switcher ml-6 flex items-center border border-gray-200 rounded-md p-0.5">
+                    <div id="lang-switcher" class="lang-switcher js-lang-switcher ml-6 flex items-center border border-gray-200 rounded-md p-0.5">
                         <button data-lang="en">EN</button>
                         <button data-lang="bg">BG</button>
                     </div>
+                </div>
+                <!-- Mobile Menu Button (Hamburger) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-open-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay + Panel -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-40 hidden bg-black/20 backdrop-blur-sm">
+        <div id="mobile-menu-panel" class="bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out">
+            <!-- Overlay Header (inset) -->
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0">
+                        <a href="#" class="flex items-center space-x-2">
+                            <img src="hackrowing-logo.jpg" alt="HackRowing Logo" class="h-12 w-auto">
+                            <span id="nav-brand-mobile" class="font-bold text-lg" style="color: var(--color-dark-blue);"></span>
+                        </a>
+                    </div>
+                    <div class="flex items-center">
+                        <button id="mobile-menu-close-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
+                            <span class="sr-only">Close main menu</span>
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Divider (Full Width) -->
+            <div style="height: 1px; background-color: rgba(100, 196, 234, 0.4);"></div>
+
+            <!-- Menu Content -->
+            <div class="pt-2 pb-3">
+                <div id="mobile-nav-links-container" class="divide-y px-4 sm:px-6 lg:px-8" style="--tw-divide-color: rgba(100, 196, 234, 0.4);">
+                    <!-- Mobile nav links will be injected here -->
+                </div>
+                <div class="px-4 sm:px-6 lg:px-8">
+                    <div class="pt-4 pb-3 border-t" style="border-color: rgba(100, 196, 234, 0.4);">
+                        <p class="font-semibold text-gray-500 mb-2" id="mobile-lang-label">Language</p>
+                        <div id="lang-switcher-mobile" class="lang-switcher js-lang-switcher flex items-center border border-gray-200 rounded-md p-0.5 w-min">
+                            <button data-lang="en">EN</button>
+                            <button data-lang="bg">BG</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Main Content -->
     <div class="container mx-auto p-4 md:p-8 max-w-6xl">
-
         <!-- Header Section -->
         <header class="text-center mb-12 md:mb-16">
             <img src="hackrowing-logo.jpg" alt="HackRowing Logo" class="max-h-[25vh] max-w-full w-auto block mx-auto my-6">
@@ -230,7 +288,6 @@
                     <div id="structure-steps" class="relative max-w-2xl mx-auto mt-8"></div>
                 </div>
                 <p id="details-disclaimer_2" class="text-sm mt-4 text-center italic text-gray-500"></p>
-
             </section>
 
             <!-- Testimonials Section -->
@@ -270,7 +327,9 @@
                             <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none"></textarea>
                         </div>
                         <div class="text-center">
-                            <button id="contact-form-submit-button" type="submit" class="w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-bold rounded-lg text-white transition-transform hover:scale-105" style="background-color: var(--color-dark-blue);"></button>
+                            <button id="contact-form-submit-button" type="submit"
+                                    class="w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-bold rounded-lg text-white transition-transform hover:scale-105" style="background-color: var(--color-dark-blue);">
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -296,9 +355,40 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const langSwitcher = document.getElementById('lang-switcher');
             let currentLang = 'en';
-            let svgIcons = {}; // Global store for SVG icons
+            let svgIcons = {};
+
+            // Mobile Menu Elements
+            const openButton = document.getElementById('mobile-menu-open-button');
+            const closeButton = document.getElementById('mobile-menu-close-button');
+            const menuOverlay = document.getElementById('mobile-menu-overlay');
+            const menuPanel = document.getElementById('mobile-menu-panel');
+
+            /**
+             * Opens the mobile menu with a slide-down animation.
+             */
+            const openMobileMenu = () => {
+                menuOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background from scrolling
+                // Use a tiny timeout to allow the browser to render the element before adding the class
+                setTimeout(() => {
+                    menuPanel.classList.add('open');
+                }, 10);
+            };
+
+            /**
+             * Closes the mobile menu with a slide-up animation.
+             */
+            const closeMobileMenu = () => {
+                menuPanel.classList.remove('open');
+                // Wait for the transition to finish before hiding the overlay
+                menuPanel.addEventListener('transitionend', () => {
+                    menuOverlay.classList.add('hidden');
+                    document.body.style.overflow = ''; // Restore background scrolling
+                }, {
+                    once: true
+                }); // Important: 'once' removes the listener after it runs
+            };
 
             /**
              * Fetches and applies language resources to the page.
@@ -309,7 +399,7 @@
                 document.documentElement.lang = lang;
                 localStorage.setItem('language', lang);
 
-                langSwitcher.querySelectorAll('button').forEach(btn => {
+                document.querySelectorAll('.js-lang-switcher button').forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
 
@@ -378,9 +468,25 @@
              */
             const populateText = (res) => {
                 setText('nav-brand', res.nav.brand);
-                document.getElementById('nav-links-container').innerHTML = res.nav.links
+                setText('nav-brand-mobile', res.nav.brand);
+
+                const navLinksHTML = res.nav.links
                     .map(l => `<a href="${l.href}" class="text-gray-700 hover:text-[var(--color-dark-blue)] px-3 py-2 rounded-md text-sm font-medium">${l.text}</a>`)
                     .join('');
+                document.getElementById('nav-links-container').innerHTML = navLinksHTML;
+
+                const mobileNavLinksHTML = res.nav.links
+                    .map(l => `<a href="${l.href}" class="mobile-nav-link text-gray-700 hover:text-[var(--color-dark-blue)] block py-4 text-base font-medium">${l.text}</a>`)
+                    .join('');
+                document.getElementById('mobile-nav-links-container').innerHTML = mobileNavLinksHTML;
+
+                // Add event listeners to newly created links
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        closeMobileMenu();
+                    });
+                });
+
                 setText('nav-cta-button', res.nav.ctaButton);
 
                 setText('header-subtitle', res.header.subtitle);
@@ -444,6 +550,9 @@
                 setText('footer-description', res.footer.description);
                 setText('footer-location-title', res.footer.locationTitle);
                 setText('footer-copyright', res.footer.copyright);
+                if (res.nav.mobileLangLabel) {
+                    setText('mobile-lang-label', res.nav.mobileLangLabel);
+                }
             };
 
             /**
@@ -491,29 +600,24 @@
                 const nextBtn = document.getElementById('next-testimonial');
 
                 if (!viewport || !inner || cards.length === 0) return;
-
                 let currentIndex = 0;
-
                 const update = () => {
                     inner.style.transform = `translateX(-${currentIndex * 100}%)`;
                     prevBtn.classList.toggle('disabled', currentIndex === 0);
                     nextBtn.classList.toggle('disabled', currentIndex === cards.length - 1);
                 };
-
                 prevBtn.addEventListener('click', () => {
                     if (currentIndex > 0) {
                         currentIndex--;
                         update();
                     }
                 });
-
                 nextBtn.addEventListener('click', () => {
                     if (currentIndex < cards.length - 1) {
                         currentIndex++;
                         update();
                     }
                 });
-
                 window.addEventListener('resize', update);
                 update(); // Initial setup
 
@@ -552,21 +656,42 @@
                 });
             };
 
-            // --- Initial Load Logic ---
+            // --- Initial Setup and Event Listeners ---
 
             const savedLang = localStorage.getItem('language');
             const browserLang = navigator.language.split('-')[0];
             const initialLang = savedLang || (browserLang === 'bg' ? 'bg' : 'en');
             loadLanguage(initialLang);
 
-            // --- Event Listener for Language Switcher ---
-
-            langSwitcher.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON') {
-                    const selectedLang = e.target.dataset.lang;
-                    if (selectedLang !== currentLang) {
-                        loadLanguage(selectedLang);
+            document.querySelectorAll('.js-lang-switcher').forEach(switcher => {
+                switcher.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'BUTTON') {
+                        const selectedLang = e.target.dataset.lang;
+                        if (selectedLang !== currentLang) {
+                            loadLanguage(selectedLang);
+                            // Only close if it's the mobile switcher that was clicked
+                            if (switcher.id === 'lang-switcher-mobile') {
+                                closeMobileMenu();
+                            }
+                        }
                     }
+                });
+            });
+
+            // --- Event Listener for Language Switcher ---
+            openButton.addEventListener('click', () => {
+                if (menuOverlay.classList.contains('hidden')) {
+                    openMobileMenu();
+                } else {
+                    closeMobileMenu();
+                }
+            });
+
+            closeButton.addEventListener('click', closeMobileMenu);
+
+            menuOverlay.addEventListener('click', (e) => {
+                if (e.target === menuOverlay) {
+                    closeMobileMenu();
                 }
             });
         });
